@@ -15,7 +15,7 @@
 -   **Frontend**: React (Vite), Tailwind CSS, Native WebSockets (Real-time)
 -   **Backend**: Python, FastAPI, Uvicorn, WebSockets
 -   **NLP Tools**: `thefuzz`, `regex`
--   **Data Storage**: JSON (File-based persistence)
+-   **Data Storage**: MongoDB (Async Motor Driver)
 
 ## 🚀 Getting Started
 
@@ -33,7 +33,25 @@ pip install -r requirements.txt
 uvicorn main:app --reload --proxy-headers
 ```
 
-### 2. Frontend Setup
+### 2. Database Setup (MongoDB)
+This project requires **MongoDB**.
+
+**Option A: Local Setup (Recommended)**
+1.  Download [MongoDB Community Server](https://www.mongodb.com/try/download/community).
+2.  Install and run it. The default URL is `mongodb://localhost:27017`.
+
+**Option B: Cloud Setup (MongoDB Atlas)**
+1.  Create a free cluster on [MongoDB Atlas](https://www.mongodb.com/atlas).
+2.  Get your Connection String.
+3.  Set the environment variable:
+    ```bash
+    # Linux/Mac
+    export MONGO_URI="your_connection_string"
+    # Windows PowerShell
+    $env:MONGO_URI="your_connection_string"
+    ```
+
+### 3. Frontend Setup
 The frontend runs on port `5173`.
 
 ```bash
@@ -44,10 +62,26 @@ npm run dev
 
 ## 📖 How to Use
 
-1.  **Ask Questions**: "What is the leave policy?", "Do we have health insurance?"
-2.  **Apply for Leave**: "I want to apply for sick leave" -> Bot asks "How many days?" -> "2 days".
+1.  **Login**: The bot will ask for your Employee ID. Enter a valid ID (e.g., `EMP001`, `EMP042`).
+2.  **Ask Questions**: "What is the leave policy?", "Do we have health insurance?"
+3.  **Apply for Leave**: "I want to apply for sick leave" -> Bot asks "How many days?" -> "2 days".
+4.  **My Data**:
+    -   "What is my leave balance?" -> Returns *your* specific balance.
+    -   "Check my application status" -> Returns *your* recent requests.
 3.  **Check Status**: "What is the status of my leave application?"
 4.  **Teach the Bot**: "Learn: Who is the CEO? -> Ayush is the CEO."
+5.  **Admin Lookup**: "Check details for EMP005" -> Returns full employee profile (Role, Manager, Rating).
+
+## 🎲 Mock Data Setup
+To populate the database with 50+ fake employees for testing:
+
+```bash
+# Verify you have 'faker' installed
+pip install faker
+# Run the seed script
+python backend/seed_db.py
+```
+*This will reset the database and create users with IDs EMP001 to EMP050.*
 
 ## 📂 Project Structure
 
