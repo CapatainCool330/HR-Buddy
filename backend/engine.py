@@ -39,8 +39,11 @@ class ChatEngine:
         current_state = session.get("state")
         authenticated_user = session.get("authenticated_user_id")
 
+        print(f"DEBUG: User={user_id}, State={current_state}, AuthUser={authenticated_user}, Msg={message}")
+
         # 0. Handle Authentication State
         if current_state == "WAITING_FOR_AUTH":
+            print("DEBUG: Handling Auth...")
             return await self._handle_auth(message, user_id)
 
         # 1. Gating: If not authenticated, force login
@@ -74,6 +77,7 @@ class ChatEngine:
             return faq_response
 
         # 6. Fallback
+        print(f"DEBUG: Fallback triggered. User={user_id}, Auth={authenticated_user}, Msg={message}")
         return {
             "type": "text",
             "content": "I'm sorry, I didn't quite catch that. Could you please rephrase? You can ask me about leave policies, holidays, or apply for leave."

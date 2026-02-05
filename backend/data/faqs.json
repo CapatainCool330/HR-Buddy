@@ -1,4 +1,13 @@
-[
+  {
+    "question": "Hello",
+    "answer": "Hello! I am HR Buddy. Please log in with your Employee ID (e.g., EMP001) if prompted, or ask me a question!",
+    "keywords": [
+      "hello",
+      "hi",
+      "hey",
+      "greetings"
+    ]
+  },
   {
     "question": "What is the leave policy?",
     "answer": "Employees are entitled to 20 days of paid leave per year. Unused leaves can be carried forward up to 10 days.",

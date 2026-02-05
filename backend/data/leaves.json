@@ -159,5 +159,12 @@
     "days": 3,
     "status": "Pending Approval",
     "timestamp": "2026-02-05T19:12:15.265127"
+  },
+  {
+    "application_id": "APP-1023",
+    "user_id": "EMP002",
+    "days": 3,
+    "status": "Pending Approval",
+    "timestamp": "2026-02-05T19:38:53.117687"
   }
 ]

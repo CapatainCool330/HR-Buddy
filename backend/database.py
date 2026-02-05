@@ -27,6 +27,11 @@ def _load_data():
     else:
         leaves_cache = []
 
+def _save_users():
+    """Persist new/updated users to JSON."""
+    with open(EMPLOYEES_FILE, "w") as f:
+        json.dump(users_cache, f, indent=2)
+
 def _save_leaves():
     """Persist new leaves to JSON."""
     with open(LEAVES_FILE, "w") as f:
@@ -58,7 +63,7 @@ async def get_user_balance(user_id: str):
             "metadata": {"salary_band": "L1"}
         }
         users_cache.append(new_user)
-        # Note: We don't save new employees to file in this simple version
+        _save_users() # Persist new user to disk
         return new_user
         
     return user

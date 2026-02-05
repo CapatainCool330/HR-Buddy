@@ -50,9 +50,11 @@ npm run dev
 4.  **My Data**:
     -   "What is my leave balance?" -> Returns *your* specific balance.
     -   "Check my application status" -> Returns *your* recent requests.
-3.  **Check Status**: "What is the status of my leave application?"
-4.  **Teach the Bot**: "Learn: Who is the CEO? -> Ayush is the CEO."
-5.  **Admin Lookup**: "Check details for EMP005" -> Returns full employee profile (Role, Manager, Rating).
+5.  **Check Status**: "what is the status of my leave application?"
+6.  **Teach the Bot**: "Learn: Who is the CEO? -> Ayush is the CEO."
+7.  **Admin Lookup**: "Check details for EMP005" -> Returns full employee profile (Role, Manager, Rating).
+
+> **Note**: All data (Leaves, New FAQs) is saved instantly to the `data/` folder. It persists even if you restart the server! 💾
 
 ## 🎲 Mock Data Setup
 To populate the database with 50+ fake employees for testing:
