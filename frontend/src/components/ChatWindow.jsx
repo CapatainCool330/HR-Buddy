@@ -8,7 +8,13 @@ export default function ChatWindow() {
     ])
     const [input, setInput] = useState('')
     const [isConnected, setIsConnected] = useState(false)
-    const [sessionId] = useState(() => 'session-' + Math.random().toString(36).substr(2, 9))
+    const [sessionId] = useState(() => {
+        const stored = localStorage.getItem('hr_buddy_session_id');
+        if (stored) return stored;
+        const newId = 'user-' + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('hr_buddy_session_id', newId);
+        return newId;
+    })
     const ws = useRef(null)
     const messagesEndRef = useRef(null)
 

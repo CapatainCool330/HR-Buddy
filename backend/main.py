@@ -55,7 +55,7 @@ async def websocket_endpoint(websocket: WebSocket, client_id: str):
                 continue
 
             # Process with Engine
-            response_data = chat_engine.process_message(user_message, client_id)
+            response_data = await chat_engine.process_message(user_message, client_id)
             
             # Send back structured response
             await manager.send_message(json.dumps(response_data), websocket)
