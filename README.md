@@ -12,8 +12,8 @@
 
 ## 🛠️ Tech Stack
 
--   **Frontend**: React (Vite), Tailwind CSS, Axios
--   **Backend**: Python, FastAPI, Uvicorn
+-   **Frontend**: React (Vite), Tailwind CSS, Native WebSockets (Real-time)
+-   **Backend**: Python, FastAPI, Uvicorn, WebSockets
 -   **NLP Tools**: `thefuzz`, `regex`
 -   **Data Storage**: JSON (File-based persistence)
 
@@ -29,7 +29,8 @@ The backend runs on port `8000`.
 ```bash
 cd backend
 pip install -r requirements.txt
-uvicorn main:app --reload
+# Runs with Trust Proxy Config
+uvicorn main:app --reload --proxy-headers
 ```
 
 ### 2. Frontend Setup

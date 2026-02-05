@@ -1,14 +1,14 @@
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from engine import ChatEngine
+import json
 
 app = FastAPI(title="HR Buddy API")
 
 # Setup CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allow all for development
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -17,35 +17,53 @@ app.add_middleware(
 # Initialize Chat Engine
 chat_engine = ChatEngine()
 
-class ChatRequest(BaseModel):
-    message: str
-    session_id: str = "default"
+# Connection Manager
+class ConnectionManager:
+    def __init__(self):
+        self.active_connections: list[WebSocket] = []
 
-class ChatResponse(BaseModel):
-    response: str
-    type: str # text or action
+    async def connect(self, websocket: WebSocket):
+        await websocket.accept()
+        self.active_connections.append(websocket)
+
+    def disconnect(self, websocket: WebSocket):
+        self.active_connections.remove(websocket)
+
+    async def send_message(self, message: str, websocket: WebSocket):
+        await websocket.send_text(message)
+
+manager = ConnectionManager()
 
 @app.get("/")
 def health_check():
-    return {"status": "ok", "service": "HR Buddy Bot"}
+    return {"status": "ok", "service": "HR Buddy Bot (WebSocket Enabled)"}
 
-@app.post("/chat")
-def chat(request: ChatRequest):
+@app.websocket("/ws/{client_id}")
+async def websocket_endpoint(websocket: WebSocket, client_id: str):
+    await manager.connect(websocket)
     try:
-        if not request.message:
-            raise HTTPException(status_code=400, detail="Message cannot be empty")
+        while True:
+            data = await websocket.receive_text()
+            # Parse message if it's JSON, or treat as raw string
+            try:
+                message_data = json.loads(data)
+                user_message = message_data.get("message", "")
+            except json.JSONDecodeError:
+                user_message = data
 
-        response_data = chat_engine.process_message(request.message, request.session_id)
-        
-        return {
-            "response": response_data["content"],
-            "type": response_data["type"],
-            "action": response_data.get("action") # Optional action identifier
-        }
-    except Exception as e:
-        print(f"Error processing message: {e}")
-        raise HTTPException(status_code=500, detail="Internal Server Error")
+            if not user_message:
+                continue
+
+            # Process with Engine
+            response_data = chat_engine.process_message(user_message, client_id)
+            
+            # Send back structured response
+            await manager.send_message(json.dumps(response_data), websocket)
+            
+    except WebSocketDisconnect:
+        manager.disconnect(websocket)
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    # Trust Proxy Config: proxy_headers=True, forwarded_allow_ips="*"
+    uvicorn.run(app, host="0.0.0.0", port=8000, proxy_headers=True, forwarded_allow_ips="*")

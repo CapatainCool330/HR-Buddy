@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import axios from 'axios'
-import { Send, User, Bot, Loader2 } from 'lucide-react'
+import { Send, User, Bot, Loader2, Wifi, WifiOff } from 'lucide-react'
 import MessageBubble from './MessageBubble'
 
 export default function ChatWindow() {
@@ -8,8 +7,9 @@ export default function ChatWindow() {
         { id: 1, sender: 'bot', text: 'Hi! I am HR Buddy. ask me about leave policies, holidays, or apply for leave.' }
     ])
     const [input, setInput] = useState('')
-    const [isLoading, setIsLoading] = useState(false)
+    const [isConnected, setIsConnected] = useState(false)
     const [sessionId] = useState(() => 'session-' + Math.random().toString(36).substr(2, 9))
+    const ws = useRef(null)
     const messagesEndRef = useRef(null)
 
     const scrollToBottom = () => {
@@ -20,38 +20,67 @@ export default function ChatWindow() {
         scrollToBottom()
     }, [messages])
 
-    const handleSend = async () => {
-        if (!input.trim()) return
+    // WebSocket Connection Logic
+    useEffect(() => {
+        const apiUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
+        // Convert http/https to ws/wss
+        const wsUrl = apiUrl.replace('http', 'ws') + `/ws/${sessionId}`;
+
+        const connect = () => {
+            ws.current = new WebSocket(wsUrl);
+
+            ws.current.onopen = () => {
+                console.log("Connected to WebSocket");
+                setIsConnected(true);
+            };
+
+            ws.current.onmessage = (event) => {
+                try {
+                    const data = JSON.parse(event.data);
+                    const botMessage = {
+                        id: Date.now(),
+                        sender: 'bot',
+                        text: data.content || data.response, // Handle potential variations
+                        type: data.type
+                    };
+                    setMessages(prev => [...prev, botMessage]);
+                } catch (e) {
+                    console.error("Error parsing message:", e);
+                }
+            };
+
+            ws.current.onclose = () => {
+                console.log("Disconnected. Reconnecting...");
+                setIsConnected(false);
+                // Simple reconnect logic
+                setTimeout(connect, 3000);
+            };
+
+            ws.current.onerror = (err) => {
+                console.error("WebSocket error:", err);
+                ws.current.close();
+            };
+        };
+
+        connect();
+
+        return () => {
+            if (ws.current) {
+                ws.current.close();
+            }
+        };
+    }, [sessionId]);
+
+    const handleSend = () => {
+        if (!input.trim() || !isConnected) return
 
         const userMessage = { id: Date.now(), sender: 'user', text: input }
         setMessages(prev => [...prev, userMessage])
+
+        // Send via WebSocket
+        ws.current.send(JSON.stringify({ message: input }));
+
         setInput('')
-        setIsLoading(true)
-
-        try {
-            const apiUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
-            const response = await axios.post(`${apiUrl}/chat`, {
-                message: input,
-                session_id: sessionId
-            })
-
-            const botMessage = {
-                id: Date.now() + 1,
-                sender: 'bot',
-                text: response.data.response,
-                type: response.data.type
-            }
-            setMessages(prev => [...prev, botMessage])
-        } catch (error) {
-            console.error("Error sending message:", error)
-            setMessages(prev => [...prev, {
-                id: Date.now() + 1,
-                sender: 'bot',
-                text: "Sorry, I'm having trouble connecting to the server. Please try again later."
-            }])
-        } finally {
-            setIsLoading(false)
-        }
     }
 
     const handleKeyPress = (e) => {
@@ -60,19 +89,19 @@ export default function ChatWindow() {
 
     return (
         <div className="flex flex-col h-full">
+            {/* Connection Status Header */}
+            <div className={`text-xs px-4 py-1 text-center text-white ${isConnected ? 'bg-green-500' : 'bg-red-500'} transition-colors duration-300`}>
+                {isConnected ?
+                    <span className="flex items-center justify-center gap-1"><Wifi size={12} /> Connected to Real-time Server</span> :
+                    <span className="flex items-center justify-center gap-1"><WifiOff size={12} /> Disconnected - Trying to reconnect...</span>
+                }
+            </div>
+
             {/* Messages Area */}
             <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50">
                 {messages.map((msg) => (
                     <MessageBubble key={msg.id} message={msg} />
                 ))}
-                {isLoading && (
-                    <div className="flex justify-start">
-                        <div className="bg-white border border-slate-200 text-slate-500 rounded-2xl rounded-tl-none py-3 px-4 shadow-sm flex items-center gap-2">
-                            <Loader2 className="w-4 h-4 animate-spin" />
-                            <span className="text-sm">Typing...</span>
-                        </div>
-                    </div>
-                )}
                 <div ref={messagesEndRef} />
             </div>
 
@@ -86,11 +115,11 @@ export default function ChatWindow() {
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
                         onKeyPress={handleKeyPress}
-                        disabled={isLoading}
+                        disabled={!isConnected}
                     />
                     <button
                         onClick={handleSend}
-                        disabled={isLoading || !input.trim()}
+                        disabled={!isConnected || !input.trim()}
                         className="bg-primary hover:bg-blue-700 text-white p-3 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                         <Send className="w-5 h-5" />
