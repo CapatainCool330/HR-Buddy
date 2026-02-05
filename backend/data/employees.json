@@ -1,0 +1,802 @@
+[
+  {
+    "user_id": "EMP001",
+    "name": "Benjamin Cruz",
+    "role": "Marketing Lead",
+    "department": "Human Resources",
+    "manager": "Jason Chavez",
+    "join_date": "2025-07-22",
+    "performance_rating": 4,
+    "annual_leave": 4,
+    "sick_leave": 6,
+    "email": "benjamin.cruz@company.com",
+    "metadata": {
+      "salary_band": "L5",
+      "location": "Charlesville"
+    }
+  },
+  {
+    "user_id": "EMP002",
+    "name": "Rebecca Calhoun",
+    "role": "HR Specialist",
+    "department": "Human Resources",
+    "manager": "Donald Norris",
+    "join_date": "2021-11-20",
+    "performance_rating": 1,
+    "annual_leave": 12,
+    "sick_leave": 9,
+    "email": "rebecca.calhoun@company.com",
+    "metadata": {
+      "salary_band": "L3",
+      "location": "North Davidview"
+    }
+  },
+  {
+    "user_id": "EMP003",
+    "name": "Robert Fisher",
+    "role": "Software Engineer",
+    "department": "Engineering",
+    "manager": "Roberto Wise",
+    "join_date": "2022-05-24",
+    "performance_rating": 3,
+    "annual_leave": 3,
+    "sick_leave": 4,
+    "email": "robert.fisher@company.com",
+    "metadata": {
+      "salary_band": "L5",
+      "location": "West Jillian"
+    }
+  },
+  {
+    "user_id": "EMP004",
+    "name": "Daniel Arroyo",
+    "role": "Sales Associate",
+    "department": "Engineering",
+    "manager": "Kelly Gardner",
+    "join_date": "2022-01-10",
+    "performance_rating": 4,
+    "annual_leave": 23,
+    "sick_leave": 9,
+    "email": "daniel.arroyo@company.com",
+    "metadata": {
+      "salary_band": "L3",
+      "location": "Davidhaven"
+    }
+  },
+  {
+    "user_id": "EMP005",
+    "name": "Michael Brown",
+    "role": "Software Engineer",
+    "department": "Engineering",
+    "manager": "Jennifer Murphy",
+    "join_date": "2023-01-14",
+    "performance_rating": 5,
+    "annual_leave": 17,
+    "sick_leave": 0,
+    "email": "michael.brown@company.com",
+    "metadata": {
+      "salary_band": "L2",
+      "location": "Smithberg"
+    }
+  },
+  {
+    "user_id": "EMP006",
+    "name": "Sarah Wu",
+    "role": "Sales Associate",
+    "department": "Human Resources",
+    "manager": "Holly Smith",
+    "join_date": "2025-12-02",
+    "performance_rating": 1,
+    "annual_leave": 6,
+    "sick_leave": 1,
+    "email": "sarah.wu@company.com",
+    "metadata": {
+      "salary_band": "L2",
+      "location": "West Stevenstad"
+    }
+  },
+  {
+    "user_id": "EMP007",
+    "name": "Jack Collins",
+    "role": "Data Scientist",
+    "department": "Product",
+    "manager": "Jerry Stevens",
+    "join_date": "2025-12-30",
+    "performance_rating": 2,
+    "annual_leave": 11,
+    "sick_leave": 4,
+    "email": "jack.collins@company.com",
+    "metadata": {
+      "salary_band": "L5",
+      "location": "Lake Hannahmouth"
+    }
+  },
+  {
+    "user_id": "EMP008",
+    "name": "Carlos Miller",
+    "role": "HR Specialist",
+    "department": "Product",
+    "manager": "Thomas Gonzalez",
+    "join_date": "2024-02-13",
+    "performance_rating": 3,
+    "annual_leave": 13,
+    "sick_leave": 3,
+    "email": "carlos.miller@company.com",
+    "metadata": {
+      "salary_band": "L2",
+      "location": "Gregoryshire"
+    }
+  },
+  {
+    "user_id": "EMP009",
+    "name": "Mark Miller",
+    "role": "Sales Associate",
+    "department": "Human Resources",
+    "manager": "Jeffrey Wilson",
+    "join_date": "2025-07-03",
+    "performance_rating": 2,
+    "annual_leave": 10,
+    "sick_leave": 3,
+    "email": "mark.miller@company.com",
+    "metadata": {
+      "salary_band": "L6",
+      "location": "West Garyville"
+    }
+  },
+  {
+    "user_id": "EMP010",
+    "name": "Jerome Simpson",
+    "role": "Product Manager",
+    "department": "Sales",
+    "manager": "Jonathan Carter",
+    "join_date": "2022-02-23",
+    "performance_rating": 5,
+    "annual_leave": 8,
+    "sick_leave": 5,
+    "email": "jerome.simpson@company.com",
+    "metadata": {
+      "salary_band": "L5",
+      "location": "Brianhaven"
+    }
+  },
+  {
+    "user_id": "EMP011",
+    "name": "Miss Mary Smith DDS",
+    "role": "Sales Associate",
+    "department": "Sales",
+    "manager": "Kevin Wong",
+    "join_date": "2021-03-20",
+    "performance_rating": 5,
+    "annual_leave": 18,
+    "sick_leave": 3,
+    "email": "miss.mary.smith.dds@company.com",
+    "metadata": {
+      "salary_band": "L1",
+      "location": "New Brett"
+    }
+  },
+  {
+    "user_id": "EMP012",
+    "name": "Kelly Daniel",
+    "role": "Data Scientist",
+    "department": "Sales",
+    "manager": "Rebecca Bailey",
+    "join_date": "2025-01-19",
+    "performance_rating": 5,
+    "annual_leave": 12,
+    "sick_leave": 8,
+    "email": "kelly.daniel@company.com",
+    "metadata": {
+      "salary_band": "L6",
+      "location": "Bryanfort"
+    }
+  },
+  {
+    "user_id": "EMP013",
+    "name": "Donna Parks",
+    "role": "Software Engineer",
+    "department": "Human Resources",
+    "manager": "Anthony Simpson",
+    "join_date": "2021-03-20",
+    "performance_rating": 2,
+    "annual_leave": 24,
+    "sick_leave": 4,
+    "email": "donna.parks@company.com",
+    "metadata": {
+      "salary_band": "L3",
+      "location": "New Matthew"
+    }
+  },
+  {
+    "user_id": "EMP014",
+    "name": "Matthew Rodriguez",
+    "role": "Software Engineer",
+    "department": "Human Resources",
+    "manager": "Anthony Nelson",
+    "join_date": "2025-09-11",
+    "performance_rating": 2,
+    "annual_leave": 5,
+    "sick_leave": 10,
+    "email": "matthew.rodriguez@company.com",
+    "metadata": {
+      "salary_band": "L1",
+      "location": "Velazquezborough"
+    }
+  },
+  {
+    "user_id": "EMP015",
+    "name": "Maria Curry",
+    "role": "Software Engineer",
+    "department": "Data",
+    "manager": "Tracy Smith",
+    "join_date": "2022-05-02",
+    "performance_rating": 3,
+    "annual_leave": 1,
+    "sick_leave": 0,
+    "email": "maria.curry@company.com",
+    "metadata": {
+      "salary_band": "L6",
+      "location": "North Johnland"
+    }
+  },
+  {
+    "user_id": "EMP016",
+    "name": "Joseph Morrison",
+    "role": "HR Specialist",
+    "department": "Marketing",
+    "manager": "Sharon Banks",
+    "join_date": "2022-07-26",
+    "performance_rating": 2,
+    "annual_leave": 3,
+    "sick_leave": 5,
+    "email": "joseph.morrison@company.com",
+    "metadata": {
+      "salary_band": "L1",
+      "location": "Tylertown"
+    }
+  },
+  {
+    "user_id": "EMP017",
+    "name": "Joanna Chen",
+    "role": "Software Engineer",
+    "department": "Human Resources",
+    "manager": "Brittney Villegas",
+    "join_date": "2023-02-13",
+    "performance_rating": 5,
+    "annual_leave": 7,
+    "sick_leave": 5,
+    "email": "joanna.chen@company.com",
+    "metadata": {
+      "salary_band": "L5",
+      "location": "Lake Dennis"
+    }
+  },
+  {
+    "user_id": "EMP018",
+    "name": "Carla Marquez",
+    "role": "HR Specialist",
+    "department": "Sales",
+    "manager": "Sherri Hernandez",
+    "join_date": "2024-11-25",
+    "performance_rating": 2,
+    "annual_leave": 13,
+    "sick_leave": 5,
+    "email": "carla.marquez@company.com",
+    "metadata": {
+      "salary_band": "L1",
+      "location": "Lake Lorihaven"
+    }
+  },
+  {
+    "user_id": "EMP019",
+    "name": "Edward White",
+    "role": "Data Scientist",
+    "department": "Data",
+    "manager": "Kristen Haynes",
+    "join_date": "2025-10-11",
+    "performance_rating": 5,
+    "annual_leave": 14,
+    "sick_leave": 9,
+    "email": "edward.white@company.com",
+    "metadata": {
+      "salary_band": "L1",
+      "location": "Nicoleberg"
+    }
+  },
+  {
+    "user_id": "EMP020",
+    "name": "Jessica Rogers",
+    "role": "Marketing Lead",
+    "department": "Product",
+    "manager": "Angela Martin",
+    "join_date": "2023-11-14",
+    "performance_rating": 5,
+    "annual_leave": 14,
+    "sick_leave": 10,
+    "email": "jessica.rogers@company.com",
+    "metadata": {
+      "salary_band": "L4",
+      "location": "North Kimberlyport"
+    }
+  },
+  {
+    "user_id": "EMP021",
+    "name": "Mindy Price",
+    "role": "Data Scientist",
+    "department": "Sales",
+    "manager": "Gregory Peterson",
+    "join_date": "2024-01-08",
+    "performance_rating": 3,
+    "annual_leave": 15,
+    "sick_leave": 6,
+    "email": "mindy.price@company.com",
+    "metadata": {
+      "salary_band": "L3",
+      "location": "Rossville"
+    }
+  },
+  {
+    "user_id": "EMP022",
+    "name": "Keith Davis",
+    "role": "HR Specialist",
+    "department": "Product",
+    "manager": "Kaylee Calderon",
+    "join_date": "2024-11-01",
+    "performance_rating": 4,
+    "annual_leave": 2,
+    "sick_leave": 0,
+    "email": "keith.davis@company.com",
+    "metadata": {
+      "salary_band": "L1",
+      "location": "Lake Jessicaport"
+    }
+  },
+  {
+    "user_id": "EMP023",
+    "name": "Kelli Allen",
+    "role": "Data Scientist",
+    "department": "Marketing",
+    "manager": "Diana Davis",
+    "join_date": "2025-07-12",
+    "performance_rating": 2,
+    "annual_leave": 7,
+    "sick_leave": 9,
+    "email": "kelli.allen@company.com",
+    "metadata": {
+      "salary_band": "L6",
+      "location": "Sanchezton"
+    }
+  },
+  {
+    "user_id": "EMP024",
+    "name": "Joan Allen",
+    "role": "HR Specialist",
+    "department": "Product",
+    "manager": "Jessica Gibbs",
+    "join_date": "2024-05-13",
+    "performance_rating": 4,
+    "annual_leave": 10,
+    "sick_leave": 6,
+    "email": "joan.allen@company.com",
+    "metadata": {
+      "salary_band": "L4",
+      "location": "Lake Alison"
+    }
+  },
+  {
+    "user_id": "EMP025",
+    "name": "Danielle Walker",
+    "role": "Sales Associate",
+    "department": "Sales",
+    "manager": "Mrs. Emma Brown",
+    "join_date": "2022-12-06",
+    "performance_rating": 1,
+    "annual_leave": 25,
+    "sick_leave": 9,
+    "email": "danielle.walker@company.com",
+    "metadata": {
+      "salary_band": "L3",
+      "location": "New Ruth"
+    }
+  },
+  {
+    "user_id": "EMP026",
+    "name": "Christopher Mercer",
+    "role": "Data Scientist",
+    "department": "Marketing",
+    "manager": "Stephanie Fitzgerald",
+    "join_date": "2022-09-26",
+    "performance_rating": 5,
+    "annual_leave": 5,
+    "sick_leave": 8,
+    "email": "christopher.mercer@company.com",
+    "metadata": {
+      "salary_band": "L5",
+      "location": "Parkhaven"
+    }
+  },
+  {
+    "user_id": "EMP027",
+    "name": "Jeffrey Carrillo",
+    "role": "Data Scientist",
+    "department": "Engineering",
+    "manager": "Jodi Johnson",
+    "join_date": "2024-04-04",
+    "performance_rating": 2,
+    "annual_leave": 0,
+    "sick_leave": 10,
+    "email": "jeffrey.carrillo@company.com",
+    "metadata": {
+      "salary_band": "L3",
+      "location": "Edwardburgh"
+    }
+  },
+  {
+    "user_id": "EMP028",
+    "name": "Shawn Jefferson",
+    "role": "Sales Associate",
+    "department": "Marketing",
+    "manager": "Luis Martin",
+    "join_date": "2024-09-29",
+    "performance_rating": 1,
+    "annual_leave": 25,
+    "sick_leave": 6,
+    "email": "shawn.jefferson@company.com",
+    "metadata": {
+      "salary_band": "L2",
+      "location": "Lake Jefferyshire"
+    }
+  },
+  {
+    "user_id": "EMP029",
+    "name": "Mike Smith",
+    "role": "Marketing Lead",
+    "department": "Engineering",
+    "manager": "Krista Kirby",
+    "join_date": "2021-05-14",
+    "performance_rating": 2,
+    "annual_leave": 5,
+    "sick_leave": 8,
+    "email": "mike.smith@company.com",
+    "metadata": {
+      "salary_band": "L4",
+      "location": "South Cameronshire"
+    }
+  },
+  {
+    "user_id": "EMP030",
+    "name": "Mary Mooney",
+    "role": "Product Manager",
+    "department": "Product",
+    "manager": "Sarah Gonzales",
+    "join_date": "2025-05-06",
+    "performance_rating": 3,
+    "annual_leave": 18,
+    "sick_leave": 2,
+    "email": "mary.mooney@company.com",
+    "metadata": {
+      "salary_band": "L6",
+      "location": "Lake Dorothyland"
+    }
+  },
+  {
+    "user_id": "EMP031",
+    "name": "Michael Olsen",
+    "role": "Software Engineer",
+    "department": "Engineering",
+    "manager": "Billy Winters",
+    "join_date": "2023-04-29",
+    "performance_rating": 1,
+    "annual_leave": 12,
+    "sick_leave": 8,
+    "email": "michael.olsen@company.com",
+    "metadata": {
+      "salary_band": "L3",
+      "location": "Lake Toniland"
+    }
+  },
+  {
+    "user_id": "EMP032",
+    "name": "Travis Cook",
+    "role": "Data Scientist",
+    "department": "Product",
+    "manager": "Colleen Cunningham",
+    "join_date": "2024-06-03",
+    "performance_rating": 3,
+    "annual_leave": 17,
+    "sick_leave": 0,
+    "email": "travis.cook@company.com",
+    "metadata": {
+      "salary_band": "L2",
+      "location": "Port Vicki"
+    }
+  },
+  {
+    "user_id": "EMP033",
+    "name": "Linda Schroeder",
+    "role": "Sales Associate",
+    "department": "Human Resources",
+    "manager": "Brianna Hernandez",
+    "join_date": "2024-08-01",
+    "performance_rating": 4,
+    "annual_leave": 11,
+    "sick_leave": 1,
+    "email": "linda.schroeder@company.com",
+    "metadata": {
+      "salary_band": "L3",
+      "location": "Port Randy"
+    }
+  },
+  {
+    "user_id": "EMP034",
+    "name": "Henry Brewer",
+    "role": "Software Engineer",
+    "department": "Product",
+    "manager": "Christopher Rios",
+    "join_date": "2025-03-13",
+    "performance_rating": 3,
+    "annual_leave": 13,
+    "sick_leave": 6,
+    "email": "henry.brewer@company.com",
+    "metadata": {
+      "salary_band": "L6",
+      "location": "Port Marcus"
+    }
+  },
+  {
+    "user_id": "EMP035",
+    "name": "Olivia Turner",
+    "role": "Data Scientist",
+    "department": "Product",
+    "manager": "Veronica Garza",
+    "join_date": "2026-01-26",
+    "performance_rating": 2,
+    "annual_leave": 8,
+    "sick_leave": 2,
+    "email": "olivia.turner@company.com",
+    "metadata": {
+      "salary_band": "L4",
+      "location": "Blakefurt"
+    }
+  },
+  {
+    "user_id": "EMP036",
+    "name": "Kyle Holloway",
+    "role": "Product Manager",
+    "department": "Human Resources",
+    "manager": "Paul Mcintosh",
+    "join_date": "2023-11-30",
+    "performance_rating": 4,
+    "annual_leave": 5,
+    "sick_leave": 0,
+    "email": "kyle.holloway@company.com",
+    "metadata": {
+      "salary_band": "L4",
+      "location": "Elliotthaven"
+    }
+  },
+  {
+    "user_id": "EMP037",
+    "name": "Jerome Morris",
+    "role": "Data Scientist",
+    "department": "Engineering",
+    "manager": "Adam Jackson",
+    "join_date": "2023-12-01",
+    "performance_rating": 3,
+    "annual_leave": 24,
+    "sick_leave": 0,
+    "email": "jerome.morris@company.com",
+    "metadata": {
+      "salary_band": "L1",
+      "location": "Tylerfort"
+    }
+  },
+  {
+    "user_id": "EMP038",
+    "name": "Kendra Simmons",
+    "role": "Software Engineer",
+    "department": "Marketing",
+    "manager": "Kristy Choi",
+    "join_date": "2021-08-29",
+    "performance_rating": 5,
+    "annual_leave": 16,
+    "sick_leave": 5,
+    "email": "kendra.simmons@company.com",
+    "metadata": {
+      "salary_band": "L6",
+      "location": "Port Brandyburgh"
+    }
+  },
+  {
+    "user_id": "EMP039",
+    "name": "Keith Wilson",
+    "role": "Sales Associate",
+    "department": "Marketing",
+    "manager": "Mark Lloyd",
+    "join_date": "2025-06-21",
+    "performance_rating": 5,
+    "annual_leave": 2,
+    "sick_leave": 7,
+    "email": "keith.wilson@company.com",
+    "metadata": {
+      "salary_band": "L3",
+      "location": "North Jessica"
+    }
+  },
+  {
+    "user_id": "EMP040",
+    "name": "Christopher Day",
+    "role": "Software Engineer",
+    "department": "Marketing",
+    "manager": "Carrie Willis",
+    "join_date": "2022-03-02",
+    "performance_rating": 1,
+    "annual_leave": 7,
+    "sick_leave": 5,
+    "email": "christopher.day@company.com",
+    "metadata": {
+      "salary_band": "L3",
+      "location": "North Richard"
+    }
+  },
+  {
+    "user_id": "EMP041",
+    "name": "Samantha White",
+    "role": "Sales Associate",
+    "department": "Product",
+    "manager": "Lori Mitchell",
+    "join_date": "2021-09-07",
+    "performance_rating": 4,
+    "annual_leave": 22,
+    "sick_leave": 6,
+    "email": "samantha.white@company.com",
+    "metadata": {
+      "salary_band": "L6",
+      "location": "Daviesshire"
+    }
+  },
+  {
+    "user_id": "EMP042",
+    "name": "Michael Gonzalez",
+    "role": "Data Scientist",
+    "department": "Data",
+    "manager": "Tina Estrada",
+    "join_date": "2021-05-15",
+    "performance_rating": 1,
+    "annual_leave": 11,
+    "sick_leave": 6,
+    "email": "michael.gonzalez@company.com",
+    "metadata": {
+      "salary_band": "L4",
+      "location": "East Kaitlyn"
+    }
+  },
+  {
+    "user_id": "EMP043",
+    "name": "Jason English",
+    "role": "Marketing Lead",
+    "department": "Marketing",
+    "manager": "Lisa Bates",
+    "join_date": "2026-01-06",
+    "performance_rating": 3,
+    "annual_leave": 10,
+    "sick_leave": 10,
+    "email": "jason.english@company.com",
+    "metadata": {
+      "salary_band": "L5",
+      "location": "Hernandezborough"
+    }
+  },
+  {
+    "user_id": "EMP044",
+    "name": "Kaitlin Brown",
+    "role": "Software Engineer",
+    "department": "Engineering",
+    "manager": "Miranda Roberts",
+    "join_date": "2021-08-06",
+    "performance_rating": 4,
+    "annual_leave": 4,
+    "sick_leave": 3,
+    "email": "kaitlin.brown@company.com",
+    "metadata": {
+      "salary_band": "L2",
+      "location": "North Matthew"
+    }
+  },
+  {
+    "user_id": "EMP045",
+    "name": "John Olson",
+    "role": "Software Engineer",
+    "department": "Sales",
+    "manager": "Lauren Howard",
+    "join_date": "2022-11-27",
+    "performance_rating": 4,
+    "annual_leave": 12,
+    "sick_leave": 1,
+    "email": "john.olson@company.com",
+    "metadata": {
+      "salary_band": "L4",
+      "location": "West Justinburgh"
+    }
+  },
+  {
+    "user_id": "EMP046",
+    "name": "Carol Stark",
+    "role": "HR Specialist",
+    "department": "Engineering",
+    "manager": "Daniel Harper",
+    "join_date": "2022-06-11",
+    "performance_rating": 2,
+    "annual_leave": 14,
+    "sick_leave": 2,
+    "email": "carol.stark@company.com",
+    "metadata": {
+      "salary_band": "L4",
+      "location": "West Lindashire"
+    }
+  },
+  {
+    "user_id": "EMP047",
+    "name": "Harold Miller",
+    "role": "Software Engineer",
+    "department": "Sales",
+    "manager": "David Murphy",
+    "join_date": "2023-07-26",
+    "performance_rating": 1,
+    "annual_leave": 6,
+    "sick_leave": 9,
+    "email": "harold.miller@company.com",
+    "metadata": {
+      "salary_band": "L6",
+      "location": "East Cathymouth"
+    }
+  },
+  {
+    "user_id": "EMP048",
+    "name": "Aaron Tyler",
+    "role": "Data Scientist",
+    "department": "Data",
+    "manager": "Amanda Cobb",
+    "join_date": "2021-09-21",
+    "performance_rating": 3,
+    "annual_leave": 1,
+    "sick_leave": 8,
+    "email": "aaron.tyler@company.com",
+    "metadata": {
+      "salary_band": "L2",
+      "location": "Phillipsmouth"
+    }
+  },
+  {
+    "user_id": "EMP049",
+    "name": "Lisa Richardson",
+    "role": "Sales Associate",
+    "department": "Engineering",
+    "manager": "Valerie Anderson",
+    "join_date": "2021-08-18",
+    "performance_rating": 4,
+    "annual_leave": 20,
+    "sick_leave": 2,
+    "email": "lisa.richardson@company.com",
+    "metadata": {
+      "salary_band": "L5",
+      "location": "Oconnellshire"
+    }
+  },
+  {
+    "user_id": "EMP050",
+    "name": "Dustin Frost",
+    "role": "Data Scientist",
+    "department": "Sales",
+    "manager": "Ashley Payne",
+    "join_date": "2023-06-06",
+    "performance_rating": 1,
+    "annual_leave": 21,
+    "sick_leave": 2,
+    "email": "dustin.frost@company.com",
+    "metadata": {
+      "salary_band": "L2",
+      "location": "South Judith"
+    }
+  }
+]

@@ -1,17 +1,163 @@
-{
-  "dfd725c2-a7d0-4109-903a-d6a6651f1555": {
-    "days": "5",
-    "status": "Pending Approval",
-    "timestamp": "1770284263.026937"
+[
+  {
+    "application_id": "65be592d-067f-45ee-afec-e63ae9f154d9",
+    "user_id": "EMP001",
+    "days": 4,
+    "status": "Pending",
+    "timestamp": "2026-01-22"
   },
-  "session-qw15ubw7a": {
-    "days": "2",
-    "status": "Pending Approval",
-    "timestamp": "1770285740.5796943"
+  {
+    "application_id": "11f600f1-1517-42ad-8311-7732b1cebc2b",
+    "user_id": "EMP004",
+    "days": 4,
+    "status": "Approved",
+    "timestamp": "2026-01-01"
   },
-  "session-blym96l0e": {
-    "days": "4",
+  {
+    "application_id": "7b992363-7d9e-4f5f-a355-0a84c07f8c94",
+    "user_id": "EMP005",
+    "days": 4,
+    "status": "Pending",
+    "timestamp": "2026-01-15"
+  },
+  {
+    "application_id": "210927e3-ce14-41f9-940a-0979796b3d5c",
+    "user_id": "EMP006",
+    "days": 1,
+    "status": "Approved",
+    "timestamp": "2026-01-22"
+  },
+  {
+    "application_id": "cd092193-5c70-4c34-ad99-261145d91a16",
+    "user_id": "EMP008",
+    "days": 3,
+    "status": "Pending",
+    "timestamp": "2026-02-03"
+  },
+  {
+    "application_id": "32b66f28-a091-4253-9764-9ba36bff6018",
+    "user_id": "EMP009",
+    "days": 1,
+    "status": "Rejected",
+    "timestamp": "2026-02-04"
+  },
+  {
+    "application_id": "32795857-064e-4d1f-be26-d132775e5978",
+    "user_id": "EMP013",
+    "days": 1,
+    "status": "Pending",
+    "timestamp": "2026-01-24"
+  },
+  {
+    "application_id": "5a7fcc6b-d897-4b06-8f7c-51c22cb54746",
+    "user_id": "EMP015",
+    "days": 1,
+    "status": "Pending",
+    "timestamp": "2026-02-05"
+  },
+  {
+    "application_id": "114ac70f-102c-4022-8af4-e5ca4eb6bdd7",
+    "user_id": "EMP017",
+    "days": 2,
+    "status": "Rejected",
+    "timestamp": "2026-02-01"
+  },
+  {
+    "application_id": "2d375847-f1f8-40f5-8dc5-7e7b5d845d2c",
+    "user_id": "EMP018",
+    "days": 3,
+    "status": "Pending",
+    "timestamp": "2026-01-03"
+  },
+  {
+    "application_id": "42d7fe68-1531-443b-b56b-b448d13984f3",
+    "user_id": "EMP021",
+    "days": 1,
+    "status": "Rejected",
+    "timestamp": "2026-01-21"
+  },
+  {
+    "application_id": "811e05a7-fc3b-48ab-a483-de21c431a550",
+    "user_id": "EMP024",
+    "days": 2,
+    "status": "Approved",
+    "timestamp": "2026-01-20"
+  },
+  {
+    "application_id": "a8fa6d4c-5ff7-49a0-9e69-04a115ad8e35",
+    "user_id": "EMP025",
+    "days": 1,
+    "status": "Pending",
+    "timestamp": "2026-01-24"
+  },
+  {
+    "application_id": "6845c6e1-0976-4adb-be34-3b5aa80779c3",
+    "user_id": "EMP027",
+    "days": 3,
+    "status": "Rejected",
+    "timestamp": "2026-01-19"
+  },
+  {
+    "application_id": "797c1b6a-6dc7-47f8-bd07-d9552a97d89f",
+    "user_id": "EMP031",
+    "days": 5,
+    "status": "Rejected",
+    "timestamp": "2026-01-07"
+  },
+  {
+    "application_id": "51fdd119-5cb2-43a1-b1b1-2d653ae49a1b",
+    "user_id": "EMP032",
+    "days": 2,
+    "status": "Pending",
+    "timestamp": "2026-01-07"
+  },
+  {
+    "application_id": "0fa31309-c28b-43cd-9acb-fcd4b666388c",
+    "user_id": "EMP035",
+    "days": 3,
+    "status": "Approved",
+    "timestamp": "2026-01-01"
+  },
+  {
+    "application_id": "5d033ff7-eb1b-464b-b7db-5f73586d2b40",
+    "user_id": "EMP038",
+    "days": 2,
+    "status": "Pending",
+    "timestamp": "2026-01-07"
+  },
+  {
+    "application_id": "2cf667ca-06b0-4ae3-8bad-46fbd113476f",
+    "user_id": "EMP040",
+    "days": 3,
+    "status": "Rejected",
+    "timestamp": "2026-01-10"
+  },
+  {
+    "application_id": "fcf238cb-cbc5-4cfe-83a7-cefbbfabbd8d",
+    "user_id": "EMP045",
+    "days": 4,
+    "status": "Approved",
+    "timestamp": "2026-01-15"
+  },
+  {
+    "application_id": "cadf6e24-7526-4ee1-921e-4b42984ac14d",
+    "user_id": "EMP046",
+    "days": 2,
+    "status": "Pending",
+    "timestamp": "2026-01-10"
+  },
+  {
+    "application_id": "be837bbe-b06f-42aa-8dfd-e175da70fc6c",
+    "user_id": "EMP050",
+    "days": 2,
+    "status": "Approved",
+    "timestamp": "2026-02-04"
+  },
+  {
+    "application_id": "APP-1022",
+    "user_id": "EMP002",
+    "days": 3,
     "status": "Pending Approval",
-    "timestamp": "1770285740.5796943"
+    "timestamp": "2026-02-05T19:12:15.265127"
   }
-}
+]

@@ -1,25 +1,27 @@
-import asyncio
+import json
 import os
 import random
 from faker import Faker
-from database import db  # Import the database connection
 
 fake = Faker()
+
+DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
+EMPLOYEES_FILE = os.path.join(DATA_DIR, "employees.json")
+LEAVES_FILE = os.path.join(DATA_DIR, "leaves.json")
 
 ROLES = ["Software Engineer", "Product Manager", "HR Specialist", "Data Scientist", "Sales Associate", "Marketing Lead"]
 DEPARTMENTS = ["Engineering", "Product", "Human Resources", "Data", "Sales", "Marketing"]
 
-async def seed_data():
-    print("🌱 Seeding Database with Mock HR Data...")
+def seed_data():
+    print("🌱 Generating Mock HR Data (JSON)...")
     
-    # 1. Clear existing data
-    await db.users.delete_many({})
-    await db.leaves.delete_many({})
-    print("Cleaning old records... Done.")
+    # Ensure data directory exists
+    os.makedirs(DATA_DIR, exist_ok=True)
 
     users = []
+    leaves = []
     
-    # 2. Create 50 Mock Employees
+    # Create 50 Mock Employees
     for i in range(1, 51):
         emp_id = f"EMP{i:03d}" # EMP001, EMP002, etc.
         name = fake.name()
@@ -43,20 +45,28 @@ async def seed_data():
         }
         users.append(user)
 
-        # 3. Create Random Leave History for some
+        # Create Random Leave History for some
         if random.random() > 0.5:
              days = random.randint(1, 5)
-             await db.leaves.insert_one({
+             status = random.choice(["Approved", "Pending", "Rejected"])
+             leaves.append({
+                 "application_id": fake.uuid4(),
                  "user_id": emp_id,
                  "days": days,
-                 "status": random.choice(["Approved", "Pending", "Rejected"]),
+                 "status": status,
                  "timestamp": fake.date_this_year().isoformat()
              })
 
-    # Bulk Insert
-    await db.users.insert_many(users)
-    print(f"✅ Successfully inserted {len(users)} employees.")
+    # Save to JSON Files
+    with open(EMPLOYEES_FILE, "w") as f:
+        json.dump(users, f, indent=2)
+        
+    with open(LEAVES_FILE, "w") as f:
+        json.dump(leaves, f, indent=2)
+
+    print(f"✅ Successfully saved {len(users)} employees to 'backend/data/employees.json'.")
+    print(f"✅ Successfully saved {len(leaves)} leave records to 'backend/data/leaves.json'.")
     print("Example IDs to try: EMP001, EMP005, EMP042")
 
 if __name__ == "__main__":
-    asyncio.run(seed_data())
+    seed_data()

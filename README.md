@@ -15,7 +15,7 @@
 -   **Frontend**: React (Vite), Tailwind CSS, Native WebSockets (Real-time)
 -   **Backend**: Python, FastAPI, Uvicorn, WebSockets
 -   **NLP Tools**: `thefuzz`, `regex`
--   **Data Storage**: MongoDB (Async Motor Driver)
+-   **Data Storage**: JSON (Persistence with `data/employees.json`)
 
 ## 🚀 Getting Started
 
@@ -33,25 +33,7 @@ pip install -r requirements.txt
 uvicorn main:app --reload --proxy-headers
 ```
 
-### 2. Database Setup (MongoDB)
-This project requires **MongoDB**.
-
-**Option A: Local Setup (Recommended)**
-1.  Download [MongoDB Community Server](https://www.mongodb.com/try/download/community).
-2.  Install and run it. The default URL is `mongodb://localhost:27017`.
-
-**Option B: Cloud Setup (MongoDB Atlas)**
-1.  Create a free cluster on [MongoDB Atlas](https://www.mongodb.com/atlas).
-2.  Get your Connection String.
-3.  Set the environment variable:
-    ```bash
-    # Linux/Mac
-    export MONGO_URI="your_connection_string"
-    # Windows PowerShell
-    $env:MONGO_URI="your_connection_string"
-    ```
-
-### 3. Frontend Setup
+### 2. Frontend Setup
 The frontend runs on port `5173`.
 
 ```bash

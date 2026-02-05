@@ -1,46 +1,102 @@
+import json
 import os
-import motor.motor_asyncio
+import asyncio
 from datetime import datetime
 
-# Default to local MongoDB if not set
-MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")
-DB_NAME = "hr_buddy_db"
+# Define Paths
+DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
+EMPLOYEES_FILE = os.path.join(DATA_DIR, "employees.json")
+LEAVES_FILE = os.path.join(DATA_DIR, "leaves.json")
 
-client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_URI)
-db = client[DB_NAME]
+# In-Memory Cache (Simulates Database)
+users_cache = []
+leaves_cache = []
+
+def _load_data():
+    """Load JSON data into memory."""
+    global users_cache, leaves_cache
+    if os.path.exists(EMPLOYEES_FILE):
+        with open(EMPLOYEES_FILE, "r") as f:
+            users_cache = json.load(f)
+    else:
+        users_cache = []
+
+    if os.path.exists(LEAVES_FILE):
+        with open(LEAVES_FILE, "r") as f:
+            leaves_cache = json.load(f)
+    else:
+        leaves_cache = []
+
+def _save_leaves():
+    """Persist new leaves to JSON."""
+    with open(LEAVES_FILE, "w") as f:
+        json.dump(leaves_cache, f, indent=2)
+
+# Initial Load
+_load_data()
+
+# --- ASYNC INTERFACE (Compatible with engine.py) ---
 
 async def get_user_balance(user_id: str):
-    user = await db.users.find_one({"user_id": user_id})
+    # Simulate Async DB Delay
+    await asyncio.sleep(0.01)
+    
+    # Find user in cache
+    user = next((u for u in users_cache if u["user_id"] == user_id), None)
+    
     if not user:
-        # Create default user with balance
+        # Create default user if not found (Auto-provision)
         new_user = {
             "user_id": user_id,
+            "name": "Guest User",
+            "role": "General Staff",
+            "department": "Unknown",
+            "manager": "System Admin",
             "annual_leave": 20,
             "sick_leave": 10,
-            "created_at": datetime.utcnow()
+            "email": "guest@company.com",
+            "metadata": {"salary_band": "L1"}
         }
-        await db.users.insert_one(new_user)
+        users_cache.append(new_user)
+        # Note: We don't save new employees to file in this simple version
         return new_user
+        
     return user
 
 async def create_leave_application(user_id: str, days: int):
-    application = {
+    await asyncio.sleep(0.01)
+    
+    app_id = f"APP-{len(leaves_cache) + 1000}"
+    new_leave = {
+        "application_id": app_id,
         "user_id": user_id,
         "days": days,
         "status": "Pending Approval",
-        "timestamp": datetime.utcnow()
+        "timestamp": datetime.utcnow().isoformat()
     }
-    result = await db.leaves.insert_one(application)
-    return str(result.inserted_id)
+    
+    leaves_cache.append(new_leave)
+    _save_leaves() # Persist to disk
+    
+    return app_id
 
 async def get_user_applications(user_id: str):
-    cursor = db.leaves.find({"user_id": user_id}).sort("timestamp", -1)
-    return await cursor.to_list(length=10)
+    await asyncio.sleep(0.01)
+    # Filter and Sort (Newest first)
+    user_leaves = [app for app in leaves_cache if app["user_id"] == user_id]
+    user_leaves.sort(key=lambda x: x["timestamp"], reverse=True)
+    return user_leaves[:10]
 
 async def get_employee_full_details(user_id: str):
-    user = await db.users.find_one({"user_id": user_id})
+    await asyncio.sleep(0.01)
+    
+    user = next((u for u in users_cache if u["user_id"] == user_id), None)
+    
     if user:
         # Get recent leaves
         leaves = await get_user_applications(user_id)
-        user["recent_leaves"] = leaves
-    return user
+        # Create a copy to avoid mutating the cache
+        user_copy = user.copy()
+        user_copy["recent_leaves"] = leaves
+        return user_copy
+    return None
