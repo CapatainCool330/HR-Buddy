@@ -8,6 +8,7 @@
 -   **📝 structured Actions**: Detects intents like "Apply for leave" and triggers multi-turn workflows.
 -   **💾 Persistent Memory**: Stores leave applications and learned facts in local JSON files (`leaves.json`, `faqs.json`).
 -   **🎓 Dynamic Learning**: You can teach the bot new facts directly in the chat command `Learn: Q -> A`.
+-   **⏰ Auto-Wake**: Automatically "pings" the backend on page load to wake up free-tier servers (like Render) instantly.
 -   **💬 Modern UI**: Built with React, Tailwind CSS, and Lucide Icons.
 
 ## 🛠️ Tech Stack
