@@ -32,7 +32,19 @@ export default function ChatWindow() {
         // Convert http/https to ws/wss
         const wsUrl = apiUrl.replace('http', 'ws') + `/ws/${sessionId}`;
 
+        // PING LOGIC (Wake up Render)
+        const pingServer = async () => {
+            try {
+                await fetch(apiUrl);
+            } catch (e) {
+                console.log("Server waking up...", e);
+            }
+        }
+        pingServer(); // Fire and forget
+
         const connect = () => {
+            if (ws.current?.readyState === WebSocket.OPEN) return;
+
             ws.current = new WebSocket(wsUrl);
 
             ws.current.onopen = () => {
@@ -46,7 +58,7 @@ export default function ChatWindow() {
                     const botMessage = {
                         id: Date.now(),
                         sender: 'bot',
-                        text: data.content || data.response, // Handle potential variations
+                        text: data.content || data.response,
                         type: data.type
                     };
                     setMessages(prev => [...prev, botMessage]);
@@ -58,7 +70,7 @@ export default function ChatWindow() {
             ws.current.onclose = () => {
                 console.log("Disconnected. Reconnecting...");
                 setIsConnected(false);
-                // Simple reconnect logic
+                // Retry connection every 3 seconds
                 setTimeout(connect, 3000);
             };
 
@@ -99,7 +111,7 @@ export default function ChatWindow() {
             <div className={`text-xs px-4 py-1 text-center text-white ${isConnected ? 'bg-green-500' : 'bg-red-500'} transition-colors duration-300`}>
                 {isConnected ?
                     <span className="flex items-center justify-center gap-1"><Wifi size={12} /> Connected to Real-time Server</span> :
-                    <span className="flex items-center justify-center gap-1"><WifiOff size={12} /> Disconnected - Trying to reconnect...</span>
+                    <span className="flex items-center justify-center gap-1"><Loader2 size={12} className="animate-spin" /> Connecting... (Server might be waking up)</span>
                 }
             </div>
 
